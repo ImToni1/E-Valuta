@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">app</string>
+    <string name="Pokreni">Pokreni</string>
+    <string name="Izlaz">Izlaz</string>
+
+    <string name="Dobrodošl">Dobrodošli!</string>
+    <string name="Email">Email</string>
+    <string name="Lozinka">Lozinka</string>
+    <string name="Prijava">Prijava</string>
+    <string name="nema">Nemaš račun? Registriraj se</string>
+    <string name="kreiraj_racun">Kreiraj račun</string>
+    <string name="korisnicko_ime">Korisničko ime</string>
+    <string name="potvrdi_lozinku">Potvrdi lozinku</string>
+    <string name="registriraj_se">Registriraj se</string>
+    <string name="vec_imas_racun_prijavi_se">Već imaš račun? Prijavi se</string>
+
+    <string name="Home">Početna</string>
+    <string name="Wallet">Novčanik</string>
+    <string name="Trade">Trgovina</string>
+    <string name="Settings">Postavke</string>
+
+    <string name="Uredi_profil">Uredi profil</string>
+    <string name="Ime">Ime</string>
+    <string name="Prezime">Prezime</string>
+    <string name="Spremi_promjene">Spremi promjene</string>
+    <string name="nova">Nova lozinka</string>
+    <string name="select_new_image">Odaberi novu sliku!</string>
+    <string name="all_fields_required">Sva polja osim lozinke su obavezna!</string>
+    <string name="data_saved_successfully">Podaci uspješno spremljeni!</string>
+
+    <string name="home_title">Crypto Vijesti</string>
+    <string name="add_more_news">Dodaj još vijesti</string>
+    <string name="delete_confirmation_title">Potvrda brisanja</string>
+    <string name="delete_confirmation_message">Jeste li sigurni da želite obrisati ovu vijest?</string>
+    <string name="yes_delete">Da, obriši</string>
+    <string name="no_cancel">Ne</string>
+    <string name="no_more_news">Nema više vijesti za prikaz.</string>
+    <string name="edit_news_title">Uredi vijest</string>
+    <string name="save">Spremi</string>
+    <string name="edit_news_hint">Unesite novi tekst vijesti</string>
+    <string name="news_updated">Vijest ažurirana.</string>
+
+    <string name="wallet_title">Moj Novčanik 💰</string>
+    <string name="coin_icon_desc">Ikona valute</string>
+    <string name="your_balance">Tvoje stanje:</string>
+    <string name="your_portfolio">Tvoj Portfolio</string>
+    <string name="add_money">Dodaj novac</string>
+    <string name="add">Dodaj</string>
+    <string name="cancel">Odustani</string>
+    <string name="enter_amount_to_add">Unesite iznos za dodavanje</string>
+
+    <string name="trade_title">Odaberite valutu za trgovanje</string>
+    <string name="selected_coin_none">Odabrano: Ništa</string>
+    <string name="amount_hint">Iznos</string>
+    <string name="buy_button">Kupi</string>
+    <string name="sell_button">Prodaj</string>
+    <string name="selected_coin_format">Odabrano: %s</string>
+    <string name="buy_cryptocurrency">Kupi kriptovalutu</string>
+    <string name="amount_in_usd">Iznos (USD)</string>
+    <string name="buy">Kupi</string>
+    <string name="sell">Prodaj</string>
+    <string name="amount_to_sell">Iznos za prodaju</string>
+
+    <string name="error_fetching_data">Greška pri dohvaćanju podataka.</string>
+    <string name="error_loading_failed">Nije uspjelo učitavanje podataka.</string>
+    <string name="try_again">Pokušaj ponovo</string>
+    <string name="error_network_call">Mrežna greška. Provjerite internetsku vezu.</string>
+    <string name="not_enough_coin">Nemate dovoljno %s za prodaju.</string>
+    <string name="not_enough_funds">Nemate dovoljno sredstava.</string>
+    <string name="invalid_amount">Neispravan unos.</string>
+    <string name="select_currency">Odaberite valutu.</string>
+    <string name="amount_positive">Iznos mora biti veći od 0.</string>
+    <string name="enter_amount">Unesite iznos.</string>
+    <string name="trade_successful">Transakcija uspješna!</string>
+    <string name="error_fetching_currencies">Greška pri dohvaćanju valuta.</string>
+    <string name="error_no_price">Nije moguće pronaći trenutnu cijenu.</string>
+    <string name="fetch_coins_failed">Neuspjelo dohvaćanje valuta</string>
+    <string name="error_generic">Greška: %s</string>
+    <string name="prompt_select_currency">Molimo odaberite valutu</string>
+    <string name="prompt_enter_amount">Molimo unesite iznos</string>
+    <string name="insufficient_funds">Nedovoljno sredstava</string>
+    <string name="purchase_successful">Kupnja uspješna!</string>
+    <string name="insufficient_currency_to_sell">Nemate dovoljno te valute za prodaju</string>
+    <string name="sale_successful">Prodaja uspješna!</string>
+
+    <string name="balance_label">Stanje:</string>
+    <string name="add_label">Dodaj</string>
+    <string name="market_label">Tržište</string>
+    <string name="buy_label">Kupi</string>
+    <string name="sell_label">Prodaj</string>
+
+</resources>
