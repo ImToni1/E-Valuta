@@ -10,7 +10,6 @@ public class DataCache {
     private List<Coin> cachedCoins;
     private long lastFetchTimeMillis = 0;
 
-    // Podaci su "svježi" 2 minute (120 * 1000 milisekundi)
     private static final long CACHE_DURATION_MS = TimeUnit.MINUTES.toMillis(2);
 
     private DataCache() {}

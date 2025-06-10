@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class Coin implements Serializable {
 
-    // Vaše postojeće varijable
+
     @SerializedName("id")
     private String id;
     @SerializedName("symbol")
@@ -19,7 +19,6 @@ public class Coin implements Serializable {
     @SerializedName("market_cap_rank")
     private int marketCapRank;
 
-    // Potrebno za inner class
     @SerializedName("market_data")
     public MarketData market_data;
 
@@ -33,11 +32,8 @@ public class Coin implements Serializable {
         public double usd;
     }
 
-    // ✅ DODANO: Polje za količinu koju posjedujemo.
-    // 'transient' znači da ga Gson preskače pri parsiranju JSON-a.
     private transient double ownedAmount = 0.0;
 
-    // ✅ DODANE get/set METODE
     public String getId() { return id; }
     public String getSymbol() { return symbol; }
     public String getName() { return name; }

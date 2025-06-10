@@ -38,25 +38,18 @@ import retrofit2.Response;
 
 public class Trade extends AppCompatActivity implements TradableCoinAdapter.OnCoinClickListener {
 
-    // View elementi
     private RecyclerView tradeRecyclerView;
     private TextView selectedCoinTextView, balanceValue;
     private TextInputEditText amountEditText;
     private Button buyButton, sellButton, addMoneyButton;
     private BottomNavigationView bottomNavigationView;
     private ProgressBar loadingProgressBar;
-
-    // Adapter
     private TradableCoinAdapter tradableCoinAdapter;
     private Coin selectedCoin = null;
-
-    // Baza podataka i ostalo
     private AppDatabase db;
     private PortfolioDao portfolioDao;
     private static final String BALANCE_PREFS = "BalancePrefs";
     private static final String BALANCE_KEY = "UserBalance";
-
-    // Rješenje problema
     private boolean isLoading = false;
     private Call<List<Coin>> marketDataCall;
 
@@ -79,7 +72,6 @@ public class Trade extends AppCompatActivity implements TradableCoinAdapter.OnCo
     @Override
     protected void onResume() {
         super.onResume();
-        // Puno osvježavanje s interneta samo kad se vratimo na ekran
         loadPortfolioAndFetchMarketData();
     }
 
@@ -121,7 +113,6 @@ public class Trade extends AppCompatActivity implements TradableCoinAdapter.OnCo
                 saveBalance(currentBalance - amountToBuyUsd);
                 amountEditText.setText("");
                 Toast.makeText(this, "Kupnja uspješna.", Toast.LENGTH_SHORT).show();
-                // ✅ KLJUČNA PROMJENA: Nema više poziva API-ja, samo lokalno osvježavanje
                 refreshPortfolioState();
             });
         });
@@ -159,30 +150,19 @@ public class Trade extends AppCompatActivity implements TradableCoinAdapter.OnCo
                 saveBalance(getBalance() + moneyToGet);
                 amountEditText.setText("");
                 Toast.makeText(this, "Prodaja uspješna.", Toast.LENGTH_SHORT).show();
-                // ✅ KLJUČNA PROMJENA: Nema više poziva API-ja, samo lokalno osvježavanje
                 refreshPortfolioState();
             });
         });
     }
-
-    /**
-     * ✅ NOVO: Ova metoda samo osvježava stanje iz lokalne baze, bez poziva na internet.
-     */
     private void refreshPortfolioState() {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             List<PortfolioEntry> ownedCoins = portfolioDao.getPortfolio();
             runOnUiThread(() -> {
                 tradableCoinAdapter.setOwnedCoins(ownedCoins);
-                tradableCoinAdapter.notifyDataSetChanged(); // Obavijesti adapter o promjeni
+                tradableCoinAdapter.notifyDataSetChanged();
             });
         });
     }
-
-
-    // Ostatak koda ostaje isti
-    // ...
-    // SVE OSTALE METODE (initViews, onCoinClick, isInputValid, itd.) OSTAJU ISTE.
-    // ...
 
     private void initViews() {
         tradeRecyclerView = findViewById(R.id.trade_recyclerview);
@@ -223,13 +203,11 @@ public class Trade extends AppCompatActivity implements TradableCoinAdapter.OnCo
         if (cache.isCacheValid()) {
             Log.d("TradeActivity", "Učitavanje podataka iz CACHE-a.");
             tradableCoinAdapter.setCoins(cache.getCachedCoins());
-            // Odmah prikaži podatke, nema potrebe za loading indicatorom
             loadingProgressBar.setVisibility(View.GONE);
             tradeRecyclerView.setVisibility(View.VISIBLE);
-            return; // Prekini daljnje izvršavanje
+            return;
         }
 
-        // Ako cache nije dobar, nastavi s API pozivom...
         Log.d("TradeActivity", "Cache nije validan. Dohvaćanje s API-ja.");
         if (isLoading) {
             return;
@@ -247,7 +225,6 @@ public class Trade extends AppCompatActivity implements TradableCoinAdapter.OnCo
                 if (isFinishing() || isDestroyed()) return;
 
                 if (response.isSuccessful() && response.body() != null) {
-                    // ✅ SPREMI PODATKE U CACHE NAKON USPJEŠNOG DOHVAĆANJA
                     DataCache.getInstance().setCachedCoins(response.body());
                     tradableCoinAdapter.setCoins(response.body());
                 } else {

@@ -35,7 +35,7 @@ public class TradableCoinAdapter extends RecyclerView.Adapter<TradableCoinAdapte
 
     public TradableCoinAdapter(Context context, List<Coin> coinList, OnCoinClickListener onCoinClickListener) {
         this.context = context;
-        this.coinList = new ArrayList<>(coinList); // Koristi novu listu
+        this.coinList = new ArrayList<>(coinList);
         this.onCoinClickListener = onCoinClickListener;
     }
 
@@ -45,7 +45,6 @@ public class TradableCoinAdapter extends RecyclerView.Adapter<TradableCoinAdapte
         notifyDataSetChanged();
     }
 
-    // Nova metoda za postavljanje podataka o vlasništvu
     public void setOwnedCoins(List<PortfolioEntry> ownedEntries) {
         ownedCoinsMap.clear();
         if (ownedEntries != null) {
@@ -59,7 +58,6 @@ public class TradableCoinAdapter extends RecyclerView.Adapter<TradableCoinAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Koristimo 'list_item_trade_coin.xml' koji smo prethodno napravili
         View view = LayoutInflater.from(context).inflate(R.layout.list_item_trade_coin, parent, false);
         return new ViewHolder(view);
     }
@@ -73,17 +71,14 @@ public class TradableCoinAdapter extends RecyclerView.Adapter<TradableCoinAdapte
 
         Glide.with(context).load(coin.getImage()).into(holder.coinImage);
 
-        // Provjeri da li korisnik posjeduje ovu valutu
         if (ownedCoinsMap.containsKey(coin.getId())) {
             Double amount = ownedCoinsMap.get(coin.getId());
             holder.ownedAmount.setVisibility(View.VISIBLE);
-            // Formatiramo prikaz na više decimala radi preciznosti
             holder.ownedAmount.setText(String.format(Locale.US, "Posjedujete: %.6f", amount));
         } else {
             holder.ownedAmount.setVisibility(View.GONE);
         }
 
-        // Istakni odabranu stavku promjenom boje pozadine
         holder.itemView.setBackgroundColor(selectedPosition == position ? Color.parseColor("#E0E0E0") : Color.TRANSPARENT);
 
         holder.itemView.setOnClickListener(v -> {

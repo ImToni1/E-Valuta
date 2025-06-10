@@ -9,12 +9,11 @@ public class PortfolioEntry {
 
     @PrimaryKey
     @NonNull
-    private String coinId; // Npr. "bitcoin"
+    private String coinId;
 
     private String name;
     private String symbol;
-    private double amount; // Količina valute koju posjedujemo
-
+    private double amount;
     public PortfolioEntry(@NonNull String coinId, String name, String symbol, double amount) {
         this.coinId = coinId;
         this.name = name;
@@ -22,7 +21,6 @@ public class PortfolioEntry {
         this.amount = amount;
     }
 
-    // Getteri i Setteri
     @NonNull
     public String getCoinId() { return coinId; }
     public String getName() { return name; }

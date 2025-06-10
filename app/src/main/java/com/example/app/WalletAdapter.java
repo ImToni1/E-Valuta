@@ -18,13 +18,11 @@ public class WalletAdapter extends RecyclerView.Adapter<WalletAdapter.WalletView
     private List<Coin> portfolioCoins;
     private Context context;
 
-    // Konstruktor je sada ispravan
     public WalletAdapter(List<Coin> portfolioCoins, Context context) {
         this.portfolioCoins = portfolioCoins;
         this.context = context;
     }
 
-    // Metoda za ažuriranje podataka
     public void updateData(List<Coin> newPortfolioCoins) {
         this.portfolioCoins.clear();
         this.portfolioCoins.addAll(newPortfolioCoins);
@@ -50,13 +48,11 @@ public class WalletAdapter extends RecyclerView.Adapter<WalletAdapter.WalletView
     }
 
     class WalletViewHolder extends RecyclerView.ViewHolder {
-        // ✅ Varijable su usklađene s ID-jevima iz vašeg XML-a
         ImageView coinImage;
         TextView coinName, coinQuantity, totalValue;
 
         public WalletViewHolder(@NonNull View itemView) {
             super(itemView);
-            // ✅ Korištenje točnih ID-jeva iz list_item_coin.xml
             coinImage = itemView.findViewById(R.id.coin_image);
             coinName = itemView.findViewById(R.id.coin_name);
             coinQuantity = itemView.findViewById(R.id.coin_quantity);
@@ -64,7 +60,6 @@ public class WalletAdapter extends RecyclerView.Adapter<WalletAdapter.WalletView
         }
 
         void bind(Coin coin) {
-            // Postavljanje podataka u ispravne TextView-ove
             coinName.setText(coin.getName());
             coinQuantity.setText(String.format(Locale.US, "%.6f %s", coin.getOwnedAmount(), coin.getSymbol().toUpperCase()));
 
